@@ -1,10 +1,11 @@
 export const config = {
 
     runner: 'local',
+    hostname: '26.118.158.125',
     port: 4723,
+    path: '/',
     
-    specs: [
-        './test/specs/**/*.js'],
+    specs: ['./test/specs/**/*.js'],
     maxInstances: 1,
     capabilities: [{
         platformName: 'Android',
