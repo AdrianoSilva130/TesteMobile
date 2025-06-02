@@ -1,11 +1,12 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js'
+import Page from './page.js';
 
 
-class HomePage extends Page { 
+
+class HomePage{ 
     
-    async openMenu(){
-      $(`id:tab-${menu}`).click
+    async openMenu(menu){
+      await $(`id:tab-${menu}`).click();
     }
     
 }
