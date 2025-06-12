@@ -5,8 +5,11 @@ import CadastroPage from '../pageobjects/cadastro.page.js';
 describe('Fluxo de cadastro - EBAC Shop', () => {
     
     it('Deve cadastrar um novo usuário com sucesso', async () => {
-    await $('~profile').waitForDisplayed({ timeout: 10000 });
-    await $('~profile').click();
+    const profileTab = await $('android=new UiSelector().resourceId("tab-profile")')
+    await profileTab.click()
+
+    const signUp = await $('android=new UiSelector().text("Sign up")')
+    await signUp.click()
 
     const firstNameInput = await $('android=new UiSelector().resourceId("firstName")');
     await firstNameInput.setValue('Adriano');
@@ -23,7 +26,10 @@ describe('Fluxo de cadastro - EBAC Shop', () => {
     const passwordInput = await $('android=new UiSelector().resourceId("password")');
     await passwordInput.setValue('123456');
 
-    const registerButton = await $('android=new UiSelector().resourceId("registerButton")');
-    await registerButton.click();
+    const rePasswordInput = await $('android=new UiSelector().resourceId("repassword")');
+    await rePasswordInput.setValue('123456');
+    
+    const creatorButton = await $('android=new UiSelector().text("Create")');
+    await creatorButton.click();
 });
 })
